@@ -93,5 +93,56 @@ header {
   padding: 20px;
 }
 
+.tarjeta .imagen {
+  background-size: cover; /* La imagen cubre todo el contenedor */
+  background-position: center; /* Centra la imagen */
+  height: 150px; /* Alto fijo */
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+}
+
+.bodycontacto{
+margin:0;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#f3f4f6;
+font-family: Arial, sans-serif;
+}
 
 
+.form-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+  margin: 40px auto;  
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+.h2 .contacto {margin:0 0 10px;font-size:20px;text-align:center}
+label{font-size:14px;margin-bottom:4px}
+input, textarea{
+padding:8px;
+border:1px solid #ccc;
+border-radius:4px;
+font-size:14px;
+}
+textarea{resize:vertical;min-height:80px}
+
+
+.button .contacto{
+background:#2563eb;
+color:#fff;
+border:none;
+padding:10px;
+border-radius:4px;
+font-size:14px;
+cursor:pointer;
+}
+.button:hover .contacto {background:#1e40af}
