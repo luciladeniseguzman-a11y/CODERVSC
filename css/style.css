@@ -29,10 +29,21 @@ header nav ul {
   display: flex; 
   justify-content: center;
   gap: 20px; 
+  flex-wrap: wrap; /* Permite que los elementos de navegación se envuelvan en pantallas más pequeñas *
+  /
+  flex-direction: column;
+}<<<
+
+@media (max-width: 768px) { /* Ajusta el breakpoint según sea necesario para la navegación móvil */
+  header nav ul {
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center;   /* Centra los elementos */
+    gap: 10px;             /* Reduce el espacio entre elementos apilados */
+  }
 }
 
-header nav ul li a {
-  color: white;    
+header nav ul li a {    
+  color: white;
   font-family: "Bungee", sans-serif;
   font-size: 18px;         
   text-decoration: none; 
@@ -72,6 +83,22 @@ footer {
      gap: 14em;
      list-style: none;
      font-family: "Bungee", sans-serif;
+  display: flex;
+  gap: 14em; /* Este gap es demasiado grande para móvil, será sobrescrito */
+  /* Eliminado: list-style: none; ya que el footer no es una ul */
+  font-family: "Bungee", sans-serif;
+  flex-wrap: wrap; /* Permite que los elementos del footer se envuelvan */
+  justify-content: center; /* Centra los elementos cuando se envuelven */
+  padding: 15px 0; /* Añade algo de padding */
+}
+
+@media (max-width: 768px) { /* Ajusta el breakpoint según sea necesario para el footer móvil */
+  footer {
+    flex-direction: column; /* Apila los elementos verticalmente */
+    gap: 10px;              /* Reduce el espacio entre elementos apilados */
+    align-items: center;    /* Centra los elementos */
+    text-align: center;     /* Centra el texto dentro de los elementos */
+  }
 }
 
 .img-servicio {
@@ -126,6 +153,8 @@ font-family: Arial, sans-serif;
 
 
 .h2 .contacto {margin:0 0 10px;font-size:20px;text-align:center}
+/* Eliminadas reglas .h2 .contacto y .button .contacto no utilizadas */
+/* h2 en form-container es estilizado por h2, button por button */
 label{font-size:14px;margin-bottom:4px}
 input, textarea{
 padding:8px;
@@ -134,6 +163,7 @@ border-radius:4px;
 font-size:14px;
 }
 textarea{resize:vertical;min-height:80px}
+textarea{resize:vertical;min-height:80px} /* Esto está bien */
 
 
 .button .contacto{
@@ -146,3 +176,6 @@ font-size:14px;
 cursor:pointer;
 }
 .button:hover .contacto {background:#1e40af}
+/* El botón en el form-container puede ser estilizado directamente o con una clase */
+/* Por ejemplo: .form-container button { ... } */
+/* O usar clases de Bootstrap como btn btn-primary */
