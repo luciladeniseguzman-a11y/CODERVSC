@@ -22,4 +22,21 @@ header {
   padding: 20px;
 }
 
+nav ul {
+  font-family: "Bungee", sans-serif;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+nav ul li a {
+  color: white;
+  font-family: "Bungee", sans-serif;
+  font-size: 18px;
+  text-decoration: none;
+}
+
 /*# sourceMappingURL=style.css.map */
