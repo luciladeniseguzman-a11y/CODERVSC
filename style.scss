@@ -10,3 +10,15 @@ h1 {
     text-align: center;
     font-family: $fuente-titulo;
 }
+
+h2,
+h3 {
+    color: $color-texto;
+    font-family: $fuente-principal;
+}
+
+
+p {
+    color: $color-texto;
+    font-family: $fuente-secundaria;
+}

@@ -5,4 +5,16 @@ h1 {
   font-family: "Shadows Into Light", cursive;
 }
 
-/*# sourceMappingURL=style.css.map */
+h2 {
+  color: black;
+  font-family: "Bungee", sans-serif;
+}
+
+h3 {
+  font-family: "Bungee", sans-serif;
+}
+
+p {
+  color: black;
+  font-family: "Overlock", sans-serif;
+}
