@@ -64,3 +64,9 @@ nav {
     text-align: center;
     font-family: $fuente-principal;
 }
+
+#banner-img {
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+}
