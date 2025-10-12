@@ -1,0 +1,12 @@
+$color-principal: #31a185c4;
+$color-texto: black;
+$fuente-principal: "Bungee", sans-serif;
+$fuente-secundaria: "Overlock", sans-serif;
+$fuente-titulo: "Shadows Into Light", cursive;
+
+h1 {
+    color: $color-texto;
+    text-decoration: none;
+    text-align: center;
+    font-family: $fuente-titulo;
+}
