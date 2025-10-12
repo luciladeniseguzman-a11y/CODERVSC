@@ -68,4 +68,14 @@ main {
   font-family: "Bungee", sans-serif;
 }
 
+footer {
+  display: flex;
+  gap: 14em;
+  list-style: none;
+  font-family: "Bungee", sans-serif;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 15px 0;
+}
+
 /*# sourceMappingURL=style.css.map */

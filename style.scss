@@ -81,3 +81,13 @@ main {
     text-align: center;
     font-family: $fuente-principal;
 }
+
+footer {
+    display: flex;
+    gap: 14em;
+    list-style: none;
+    font-family: $fuente-principal;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px 0;
+}
