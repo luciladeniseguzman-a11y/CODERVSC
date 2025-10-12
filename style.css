@@ -61,4 +61,11 @@ main {
   font-family: "Bungee", sans-serif;
 }
 
+.titulos {
+  color: rgb(22, 22, 22);
+  text-decoration: underline;
+  text-align: center;
+  font-family: "Bungee", sans-serif;
+}
+
 /*# sourceMappingURL=style.css.map */
