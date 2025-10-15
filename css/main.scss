@@ -1,12 +1,8 @@
-$color-principal: #31a185c4;
-$color-texto: black;
-$fuente-principal: "Bungee", sans-serif;
-$fuente-secundaria: "Overlock", sans-serif;
-$fuente-titulo: "Shadows Into Light", cursive;
+@use "variables" as *;
+@use "mixins" as *;
 
 h1 {
     color: $color-texto;
-    text-decoration: none;
     text-align: center;
     font-family: $fuente-titulo;
 }
@@ -17,18 +13,17 @@ h3 {
     font-family: $fuente-principal;
 }
 
-
 p {
     color: $color-texto;
     font-family: $fuente-secundaria;
 }
 
-
 header {
     background-color: $color-principal;
     color: rgb(16, 22, 21);
-    padding: 20px;
+    padding: $espaciado-base;
 }
+
 
 nav {
     ul {
@@ -43,17 +38,23 @@ nav {
 
         li {
             a {
-                color: $color-principalW;
+                color: $color-texto;
                 font-family: $fuente-principal;
                 font-size: 18px;
                 text-decoration: none;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: darken($color-principal, 10%);
+                }
             }
         }
     }
 }
 
-@media (max-width: 768px) {
-    nav ul {
+
+@include respond-to(mobile) {
+    ul {
         flex-direction: column;
         align-items: center;
         gap: 10px;
@@ -75,6 +76,7 @@ main {
     font-family: $fuente-principal;
 }
 
+
 .titulos {
     color: rgb(22, 22, 22);
     text-decoration: underline;
@@ -85,11 +87,17 @@ main {
 footer {
     display: flex;
     gap: 14em;
-    list-style: none;
-    font-family: $fuente-principal;
     flex-wrap: wrap;
     justify-content: center;
     padding: 15px 0;
+    font-family: $fuente-principal;
+
+    @include respond-to(mobile) {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        text-align: center;
+    }
 }
 
 a {
@@ -99,21 +107,11 @@ a {
     text-decoration: none;
 }
 
-
-@media (max-width: 768px) {
-    footer {
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-        text-align: center;
-    }
-}
-
 .img-servicio {
     width: 100%;
     height: 250px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: $radio-borde;
 }
 
 .contenedor {
@@ -131,21 +129,20 @@ a {
     }
 }
 
+
 .bodycontacto {
     margin: 0;
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f3f4f6;
-    font-family: Arial, sans-serif;
+    @include centrar-flex;
+    background: $color-fondo;
+    font-family: $fuente-sistema;
 }
 
 .form-container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: $color-blanco;
+    padding: $espaciado-base;
+    border-radius: $radio-borde;
+    box-shadow: $sombra-base;
     width: 100%;
     max-width: 400px;
     margin: 40px auto;
@@ -154,7 +151,8 @@ a {
     gap: 12px;
 }
 
-.h2 h2.contacto {
+
+h2.contacto {
     margin: 0 0 10px;
     font-size: 20px;
     text-align: center;
@@ -163,33 +161,6 @@ a {
 label {
     font-size: 14px;
     margin-bottom: 4px;
-}
-
-input,
-textarea {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 80px;
-}
-
-button.contacto {
-    background: #2563eb;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-
-    &:hover {
-        background: #1e40af;
-    }
 }
 
 /*# sourceMappingURL=style.css.map */

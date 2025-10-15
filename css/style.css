@@ -1,6 +1,5 @@
 h1 {
   color: black;
-  text-decoration: none;
   text-align: center;
   font-family: "Shadows Into Light", cursive;
 }
@@ -33,14 +32,18 @@ nav ul {
   flex-wrap: wrap;
 }
 nav ul li a {
-  color: white;
+  color: black;
   font-family: "Bungee", sans-serif;
   font-size: 18px;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+nav ul li a:hover {
+  color: rgba(37.1, 121.9, 100.7, 0.768627451);
 }
 
 @media (max-width: 768px) {
-  nav ul {
+  ul {
     flex-direction: column;
     align-items: center;
     gap: 10px;
@@ -71,11 +74,18 @@ main {
 footer {
   display: flex;
   gap: 14em;
-  list-style: none;
-  font-family: "Bungee", sans-serif;
   flex-wrap: wrap;
   justify-content: center;
   padding: 15px 0;
+  font-family: "Bungee", sans-serif;
+}
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 a {
@@ -85,14 +95,6 @@ a {
   text-decoration: none;
 }
 
-@media (max-width: 768px) {
-  footer {
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    text-align: center;
-  }
-}
 .img-servicio {
   width: 100%;
   height: 250px;
@@ -124,7 +126,7 @@ a {
 }
 
 .form-container {
-  background: #fff;
+  background: #fdfffe;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -136,7 +138,7 @@ a {
   gap: 12px;
 }
 
-.h2 h2.contacto {
+h2.contacto {
   margin: 0 0 10px;
   font-size: 20px;
   text-align: center;
@@ -145,32 +147,6 @@ a {
 label {
   font-size: 14px;
   margin-bottom: 4px;
-}
-
-input,
-textarea {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-button.contacto {
-  background: #2563eb;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-}
-button.contacto:hover {
-  background: #1e40af;
 }
 
 
