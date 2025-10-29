@@ -1,0 +1,75 @@
+.equipo {
+    text-align: center;
+    padding: 40px 20px;
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        font-weight: bold;
+    }
+
+    .miembros {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        justify-items: center;
+        align-items: start;
+    }
+
+    .persona {
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 320px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+
+        img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover; // mantiene proporciones sin deformar
+            border-radius: 12px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-top: 5px;
+        }
+    }
+
+    // 📱 Breakpoints opcionales (más controlados)
+    @media (max-width: 768px) {
+        .miembros {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .persona img {
+            height: 250px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        h2 {
+            font-size: 1.6rem;
+        }
+
+        .persona {
+            padding: 15px;
+        }
+
+        .persona img {
+            height: 200px;
+        }
+    }
+}
