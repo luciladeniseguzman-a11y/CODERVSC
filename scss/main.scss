@@ -1,11 +1,7 @@
 @import "variables";
 @import "mixins";
-
-h1 {
-    color: $color-texto;
-    text-align: center;
-    font-family: $fuente-titulo;
-}
+@import "header";
+@import "footer";
 
 h2,
 h3 {
@@ -17,41 +13,6 @@ p {
     color: $color-texto;
     font-family: $fuente-secundaria;
 }
-
-header {
-    background-color: $color-principal;
-    color: rgb(16, 22, 21);
-    padding: $espaciado-base;
-}
-
-
-nav {
-    ul {
-        font-family: $fuente-principal;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-
-        li {
-            a {
-                color: $color-texto;
-                font-family: $fuente-principal;
-                font-size: 18px;
-                text-decoration: none;
-                transition: color 0.3s ease;
-
-                &:hover {
-                    color: darken($color-principal, 10%);
-                }
-            }
-        }
-    }
-}
-
 
 @include respond-to(mobile) {
     ul {
@@ -74,30 +35,6 @@ nav {
 
 main {
     font-family: $fuente-principal;
-}
-
-
-.titulos {
-    color: rgb(22, 22, 22);
-    text-decoration: underline;
-    text-align: center;
-    font-family: $fuente-principal;
-}
-
-footer {
-    display: flex;
-    gap: 14em;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 15px 0;
-    font-family: $fuente-principal;
-
-    @include respond-to(mobile) {
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-        text-align: center;
-    }
 }
 
 a {

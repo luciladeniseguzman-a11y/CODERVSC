@@ -1,0 +1,15 @@
+footer {
+    display: flex;
+    gap: 14em;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px 0;
+    font-family: $fuente-principal;
+
+    @include respond-to(mobile) {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        text-align: center;
+    }
+}

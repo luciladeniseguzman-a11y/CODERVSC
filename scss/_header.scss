@@ -1,0 +1,38 @@
+h1 {
+    color: $color-texto;
+    text-align: center;
+    font-family: $fuente-titulo;
+}
+
+header {
+    background-color: $color-principal;
+    color: rgb(16, 22, 21);
+    padding: $espaciado-base;
+}
+
+nav {
+    ul {
+        font-family: $fuente-principal;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        li {
+            a {
+                color: $color-texto;
+                font-family: $fuente-principal;
+                font-size: 18px;
+                text-decoration: none;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: darken($color-principal, 10%);
+                }
+            }
+        }
+    }
+}
