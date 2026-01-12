@@ -36,3 +36,57 @@ if (quiereServicios) {
 } else {
   alert("Gracias por visitar RA Digital Studio");
 }
+
+const esPaginaContacto = window.location.pathname.endsWith("contacto.html");
+
+if (esPaginaContacto) {
+  reservarServicio();
+}
+
+function reservarServicio() {
+  function fechaDisponible(fechaIngresada) {
+    const fechasOcupadas = [
+     "2026-01-19",
+     "2026-01-20",
+     "2026-01-25"
+    ];
+    return !fechasOcupadas.includes(fechaIngresada);
+  }
+
+  const fecha = prompt(
+    "¿En qué fecha te gustaría contratar el servicio? (AAAA-MM-DD)"
+  );
+
+  if (!fecha) return null;
+
+  const hoy = new Date();
+  const fechaSeleccionada = new Date(fecha);
+
+  if (fechaSeleccionada < hoy) {
+    alert("La fecha ingresada ya pasó.");
+    return null;
+  }
+
+  if (!fechaDisponible(fecha)) {
+    alert("Esa fecha ya está ocupada.");
+    return null;
+  }
+
+  alert("Fecha disponible. Podés continuar y escribirnos 👇");
+
+  return fecha; 
+}
+
+if (esPaginaContacto) {
+  const fechaReservada = reservarServicio();
+
+  if (fechaReservada) {
+    const textarea = document.getElementById("mensaje");
+
+    if (textarea) {
+      textarea.value =
+        `Hola! Me gustaría contratar un servicio.\n` +
+        `Fecha solicitada: ${fechaReservada}\n\n`;
+    }
+  }
+}
