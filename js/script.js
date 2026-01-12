@@ -1,54 +1,64 @@
 
-function saludar(nombre) {
-  alert("Hola " + nombre + ", bienvenido/a a RA Digital Studio");
-}
-
-function mostrarServicios(cantidad) {
-  const servicios = ["gestion de redes", "planificacion", "publicidad"];
-
-  for (let i = 0; i < cantidad && i < servicios.length; i++) {
-    alert("Servicio: " + servicios[i]);
+  function saludar(nombre) {
+    alert("Hola " + nombre + ", bienvenido/a a RA Digital Studio");
   }
-}
 
-const nombreUsuario = prompt("¿Cuál es tu nombre?");
+  function mostrarServicios(cantidad) {
+    const servicios = ["gestion de redes", "planificacion", "publicidad"];
 
-if (nombreUsuario && nombreUsuario.trim() !== "") {
-  saludar(nombreUsuario);
-}
+    for (let i = 0; i < cantidad && i < servicios.length; i++) {
+      alert("Servicio: " + servicios[i]);
+    }
+  }
 
-const servicioIngresado = prompt(
-  "¿Qué servicio estás buscando? (gestión de redes, planificación o publicidad)"
-);
+  const nombreUsuario = prompt("¿Cuál es tu nombre?");
 
-const serviciosDisponibles = ["gestion de redes", "planificacion", "publicidad"];
+  if (nombreUsuario && nombreUsuario.trim() !== "") {
+    saludar(nombreUsuario);
+  }
 
-if (!serviciosDisponibles.includes(servicioIngresado.toLowerCase())) {
-  alert("No reconocemos ese servicio. Por favor, revisá el nombre.");
-} else {
-  alert("Excelente elección. Pronto te contactaremos por " + servicioIngresado);
-}
+  const servicioIngresado = prompt(
+    "¿Qué servicio estás buscando? (gestión de redes, planificación o publicidad)"
+  );
 
-const quiereServicios = confirm("¿Querés ver nuestros servicios principales?");
+  const serviciosDisponibles = ["gestion de redes", "planificacion", "publicidad"];
 
-if (quiereServicios) {
-  mostrarServicios(3);
-} else {
-  alert("Gracias por visitar RA Digital Studio");
-}
+  if (!serviciosDisponibles.includes(servicioIngresado.toLowerCase())) {
+    alert("No reconocemos ese servicio. Por favor, revisá el nombre.");
+  } else {
+    alert("Excelente elección. Pronto te contactaremos por " + servicioIngresado);
+  }
 
-const esPaginaContacto = window.location.pathname.endsWith("contacto.html");
+  const quiereServicios = confirm("¿Querés ver nuestros servicios principales?");
 
-if (esPaginaContacto) {
-  reservarServicio();
-}
+  if (quiereServicios) {
+    mostrarServicios(3);
+  } else {
+    alert("Gracias por visitar RA Digital Studio");
+  }
+
+// CONTACTO 
+document.addEventListener("DOMContentLoaded", () => {
+  const textarea = document.getElementById("mensaje");
+
+  // Si existe el textarea, estamos en la página contacto
+  if (!textarea) return;
+
+  const fechaReservada = reservarServicio();
+
+  if (fechaReservada) {
+    textarea.value =
+      `Hola! Me gustaría contratar un servicio.\n` +
+      `Fecha solicitada: ${fechaReservada}\n\n`;
+  }
+});
 
 function reservarServicio() {
   function fechaDisponible(fechaIngresada) {
     const fechasOcupadas = [
-     "2026-01-19",
-     "2026-01-20",
-     "2026-01-25"
+      "2026-01-19",
+      "2026-01-20",
+      "2026-01-25"
     ];
     return !fechasOcupadas.includes(fechaIngresada);
   }
@@ -60,6 +70,8 @@ function reservarServicio() {
   if (!fecha) return null;
 
   const hoy = new Date();
+  hoy.setHours(0,0,0,0);
+
   const fechaSeleccionada = new Date(fecha);
 
   if (fechaSeleccionada < hoy) {
@@ -74,19 +86,5 @@ function reservarServicio() {
 
   alert("Fecha disponible. Podés continuar y escribirnos 👇");
 
-  return fecha; 
-}
-
-if (esPaginaContacto) {
-  const fechaReservada = reservarServicio();
-
-  if (fechaReservada) {
-    const textarea = document.getElementById("mensaje");
-
-    if (textarea) {
-      textarea.value =
-        `Hola! Me gustaría contratar un servicio.\n` +
-        `Fecha solicitada: ${fechaReservada}\n\n`;
-    }
-  }
+  return fecha;
 }
