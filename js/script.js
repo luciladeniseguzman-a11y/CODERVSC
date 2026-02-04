@@ -107,6 +107,6 @@ function ejecutarContacto() {
     resultado.textContent = "Fecha disponible ✔️";
     textarea.value =
       `Hola! Me gustaría contratar un servicio.\n` +
-      `Fecha solicitada: ${fecha}\n\n`;
+      `Fecha solicitada para reunion: ${fecha}\n\n`;
   });
 }
