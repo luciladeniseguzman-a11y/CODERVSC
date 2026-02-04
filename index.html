@@ -59,21 +59,45 @@
           id="banner-img"
         />
       </section>
-      <div class="container my-5">
-        <div class="tarjeta">
-          <div class="row text-center">
-            <div class="col-md-4 mb-4 sm-4">
-              <img
+      <section class="container my-5">
+        <h3 class="text-center mb-4">Empezá tu experiencia con nosotros</h3>
+
+        <div class="mb-3">
+          <label class="form-label">Tu nombre</label>
+          <input type="text" id="nombreUsuario" class="form-control" placeholder="Escribí tu nombre"/>
+        </div>
+        <button id="btnSaludar" class="btn btn-primary mb-3">Saludar</button>
+      </section>
+
+        <div class="mb-3">
+          <label class="form-label">¿Qué servicio estás buscando?</label>
+          <select id="servicio" class="form-select">
+            <option value="">Seleccioná un servicio</option>
+            <option value="gestion de redes">Gestión de redes</option>
+            <option value="planificacion">Planificación</option>
+            <option value="publicidad">Publicidad</option>
+          </select>
+        </div>
+        <button id="btnServicio" class="btn btn-outline-primary mb-3">Confirmar servicio</button>
+
+        <div class="mb-3">
+          <button id="btnVerServicios" class="btn btn-secondary">Ver servicios principales</button>
+        </div>
+        <ul id="listaServicios" class="list-group mb-3"></ul>
+        <p id="resultadoInicio" class="fw-bold text-success"></p></section>
+
+       <div class="container my-5">
+         <div class="tarjeta">
+           <div class="row text-center">
+             <div class="col-md-4 mb-4 sm-4">
+               <img
                 src="./assets/istockphoto-1156313286-612x612.jpg"
                 class="img-fluid mb-3 img-servicio"
-                alt="gestion de redes"
-              />
-              <a
-                href="./pages/nuestrosservicios.html"
+                alt="gestion de redes"/>
+               <a href="./pages/nuestrosservicios.html"
                 class="btn btn-outline-primary"
-                >gestion de redes</a
-              >
-            </div>
+                >gestion de redes</a>
+             </div>
             <div class="col-md-4 mb-4 sm-4">
               <img
                 src="./assets/plan.jpg"

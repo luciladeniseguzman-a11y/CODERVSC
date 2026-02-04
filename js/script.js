@@ -4,88 +4,89 @@ document.addEventListener("DOMContentLoaded", () => {
     ejecutarInicio();
   }
 
- 
   if (document.getElementById("mensaje")) {
     ejecutarContacto();
   }
 });
 
-
 function ejecutarInicio() {
+  const btnSaludar = document.getElementById("btnSaludar");
+  const btnServicio = document.getElementById("btnServicio");
+  const btnVerServicios = document.getElementById("btnVerServicios");
 
-  function saludar(nombre) {
-    alert("Hola " + nombre + ", bienvenido/a a RA Digital Studio");
-  }
-
-  function mostrarServicios(cantidad) {
-    const servicios = ["gestion de redes", "planificacion", "publicidad"];
-    for (let i = 0; i < cantidad && i < servicios.length; i++) {
-      alert("Servicio: " + servicios[i]);
-    }
-  }
-
-  const nombreUsuario = prompt("¿Cuál es tu nombre?");
-  if (nombreUsuario && nombreUsuario.trim() !== "") {
-    saludar(nombreUsuario);
-  }
-
-  const servicioIngresado = prompt(
-    "¿Qué servicio estás buscando? (gestión de redes, planificación o publicidad)"
-  );
+  const inputNombre = document.getElementById("nombreUsuario");
+  const selectServicio = document.getElementById("servicio");
+  const resultado = document.getElementById("resultadoInicio");
+  const listaServicios = document.getElementById("listaServicios");
 
   const serviciosDisponibles = ["gestion de redes", "planificacion", "publicidad"];
 
-  if (!serviciosDisponibles.includes(servicioIngresado?.toLowerCase())) {
-    alert("No reconocemos ese servicio.");
-  } else {
-    alert("Excelente elección. Pronto te contactaremos por " + servicioIngresado);
-  }
+  btnSaludar.addEventListener("click", () => {
+    const nombre = inputNombre.value.trim();
 
-  const quiereServicios = confirm("¿Querés ver nuestros servicios principales?");
-  if (quiereServicios) {
-    mostrarServicios(3);
-  } else {
-    alert("Gracias por visitar RA Digital Studio");
-  }
+    if (nombre === "") {
+      resultado.textContent = "Por favor, ingresá tu nombre.";
+      return;
+    }
+
+    resultado.textContent = `Hola ${nombre}, bienvenido/a a RA Digital Studio 😊`;
+  });
+
+  btnServicio.addEventListener("click", () => {
+    const servicio = selectServicio.value;
+
+    if (!serviciosDisponibles.includes(servicio)) {
+      resultado.textContent = "No reconocemos ese servicio.";
+    } else {
+      resultado.textContent = `Excelente elección. Pronto te contactaremos por ${servicio}.`;
+    }
+  });
+
+  btnVerServicios.addEventListener("click", () => {
+    listaServicios.innerHTML = "";
+
+    serviciosDisponibles.forEach(servicio => {
+      const li = document.createElement("li");
+      li.textContent = servicio;
+      listaServicios.appendChild(li);
+    });
+  });
 }
 
-// CONTACTO
 function ejecutarContacto() {
-  const textarea = document.getElementById("mensaje");
-
-  const fechaReservada = reservarServicio();
-
-  if (fechaReservada) {
-    textarea.value =
-      `Hola! Me gustaría contratar un servicio.\n` +
-      `Fecha solicitada: ${fechaReservada}\n\n`;
-  }
-}
-
-function reservarServicio() {
   const fechasOcupadas = ["2026-01-19", "2026-01-20", "2026-01-25"];
 
-  const fecha = prompt(
-    "¿En qué fecha te gustaría contratar el servicio? (AAAA-MM-DD)"
-  );
+  const inputFecha = document.getElementById("fechaServicio");
+  const btnReservar = document.getElementById("btnReservar");
+  const textarea = document.getElementById("mensaje");
+  const resultado = document.getElementById("resultadoContacto");
 
-  if (!fecha) return null;
+  btnReservar.addEventListener("click", () => {
+    const fecha = inputFecha.value;
 
-  const hoy = new Date();
-  hoy.setHours(0, 0, 0, 0);
+    if (!fecha) {
+      resultado.textContent = "Elegí una fecha.";
+      return;
+    }
 
-  const fechaSeleccionada = new Date(fecha);
+    const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0);
 
-  if (fechaSeleccionada < hoy) {
-    alert("La fecha ingresada ya pasó.");
-    return null;
-  }
+    const fechaSeleccionada = new Date(fecha);
 
-  if (fechasOcupadas.includes(fecha)) {
-    alert("Esa fecha ya está ocupada.");
-    return null;
-  }
+    if (fechaSeleccionada < hoy) {
+      resultado.textContent = "La fecha ingresada ya pasó.";
+      return;
+    }
 
-  alert("Fecha disponible. Podés continuar y escribirnos 👇");
-  return fecha;
+    if (fechasOcupadas.includes(fecha)) {
+      resultado.textContent = "Esa fecha ya está ocupada.";
+      return;
+    }
+
+    resultado.textContent = "Fecha disponible ✔️";
+    textarea.value =
+      `Hola! Me gustaría contratar un servicio.\n` +
+      `Fecha solicitada: ${fecha}\n\n`;
+  });
 }
