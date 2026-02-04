@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("mensaje")) {
     ejecutarContacto();
   }
+
 });
 
 function ejecutarInicio() {
@@ -20,10 +21,11 @@ function ejecutarInicio() {
   const listaServicios = document.getElementById("listaServicios");
 
   const serviciosDisponibles = [
-  "gestion de redes",
-  "planificacion",
-  "publicidad"
-];
+    "gestion de redes",
+    "planificacion",
+    "publicidad"
+  ];
+
 
   btnSaludar.addEventListener("click", () => {
     const nombre = inputNombre.value.trim();
@@ -36,6 +38,7 @@ function ejecutarInicio() {
     resultado.textContent = `Hola ${nombre}, bienvenido/a a RA Digital Studio 😊`;
   });
 
+
   btnServicio.addEventListener("click", () => {
     const servicio = selectServicio.value;
 
@@ -45,6 +48,7 @@ function ejecutarInicio() {
       resultado.textContent = `Excelente elección. Pronto te contactaremos por ${servicio}.`;
     }
   });
+
 
   btnVerServicios.addEventListener("click", () => {
     listaServicios.innerHTML = "";
@@ -65,6 +69,18 @@ function ejecutarContacto() {
   const textarea = document.getElementById("mensaje");
   const resultado = document.getElementById("resultadoContacto");
 
+  const btnVerServicios = document.getElementById("btnVerServicios");
+  const bloqueFechas = document.getElementById("bloqueFechas");
+
+  
+  if (btnVerServicios && bloqueFechas) {
+    btnVerServicios.addEventListener("click", () => {
+      bloqueFechas.style.display = "block";
+      btnVerServicios.style.display = "none";
+    });
+  }
+
+  
   btnReservar.addEventListener("click", () => {
     const fecha = inputFecha.value;
 
@@ -94,15 +110,3 @@ function ejecutarContacto() {
       `Fecha solicitada: ${fecha}\n\n`;
   });
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  const btnVerServicios = document.getElementById("btnVerServicios");
-  const bloqueFechas = document.getElementById("bloqueFechas");
-
-  if (btnVerServicios && bloqueFechas) {
-    btnVerServicios.addEventListener("click", () => {
-      bloqueFechas.style.display = "block";
-      btnVerServicios.style.display = "none"; // opcional
-    });
-  }
-});
