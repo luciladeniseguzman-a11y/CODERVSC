@@ -19,6 +19,11 @@ function ejecutarInicio() {
   const resultado = document.getElementById("resultadoInicio");
   const listaServicios = document.getElementById("listaServicios");
 
+  const serviciosDisponibles = [
+  "gestion de redes",
+  "planificacion",
+  "publicidad"
+];
 
   btnSaludar.addEventListener("click", () => {
     const nombre = inputNombre.value.trim();
