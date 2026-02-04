@@ -19,7 +19,6 @@ function ejecutarInicio() {
   const resultado = document.getElementById("resultadoInicio");
   const listaServicios = document.getElementById("listaServicios");
 
-  const serviciosDisponibles = ["gestion de redes", "planificacion", "publicidad"];
 
   btnSaludar.addEventListener("click", () => {
     const nombre = inputNombre.value.trim();
@@ -54,7 +53,7 @@ function ejecutarInicio() {
 }
 
 function ejecutarContacto() {
-  const fechasOcupadas = ["2026-01-19", "2026-01-20", "2026-01-25"];
+  const fechasOcupadas = ["2026-03-19", "2026-02-20", "2026-02-25"];
 
   const inputFecha = document.getElementById("fechaServicio");
   const btnReservar = document.getElementById("btnReservar");
@@ -90,3 +89,15 @@ function ejecutarContacto() {
       `Fecha solicitada: ${fecha}\n\n`;
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btnVerServicios = document.getElementById("btnVerServicios");
+  const bloqueFechas = document.getElementById("bloqueFechas");
+
+  if (btnVerServicios && bloqueFechas) {
+    btnVerServicios.addEventListener("click", () => {
+      bloqueFechas.style.display = "block";
+      btnVerServicios.style.display = "none"; // opcional
+    });
+  }
+});

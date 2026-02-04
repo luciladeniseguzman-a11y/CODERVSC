@@ -81,13 +81,23 @@
         </div>
        <div class="text-center my-3">
        <button id="btnServicio" class="btn btn-outline-primary mb-3">Confirmar servicio</button>
+       </div> 
 
-       <div>
-       <button id="btnVerServicios" class="btn btn-secondary">Ver fechas disponibles de reunión</button>
-  </div>
-</div>
-        <ul id="listaServicios" class="list-group mb-3"></ul>
-        <p id="resultadoInicio" class="fw-bold text-success"></p></section>
+       <div id="bloqueFechas" class="container my-4 text-center" style="display: none;">
+         <div class="mb-3">
+          <label class="form-label">Elegí una fecha</label>
+            <input type="date" id="fechaServicio" class="form-control w-50 mx-auto"/>
+         </div>
+
+          <button id="btnReservar" class="btn btn-primary mb-3">Ver disponibilidad</button>
+          <p id="resultadoContacto" class="fw-bold"></p>
+          <textarea id="mensaje" class="form-control mt-3" rows="5" placeholder="Tu mensaje aparecerá acá..."></textarea>
+        </div>
+        <div class="text-center my-3">
+          <button id="btnVerServicios" class="btn btn-secondary">Ver fechas disponibles de reunión</button>
+          <ul id="listaServicios" class="list-group mb-3"></ul>
+          <p id="resultadoInicio" class="fw-bold text-success"></p></section>
+        </div>
 
        <div class="container my-5">
          <div class="tarjeta">
